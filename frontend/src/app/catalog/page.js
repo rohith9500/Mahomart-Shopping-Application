@@ -13,7 +13,7 @@ const SORT_OPTIONS = [
   { value: 'popularity', label: 'Customer Rating' },
 ];
 
-export default function CatalogPage() {
+function CatalogPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -338,5 +338,24 @@ export default function CatalogPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function CatalogPage() {
+  return (
+    <React.Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+          <aside className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-6 h-96 animate-pulse" />
+          <main className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white rounded-2xl p-4 border border-slate-100 space-y-4 animate-pulse h-96" />
+            ))}
+          </main>
+        </div>
+      </div>
+    }>
+      <CatalogPageContent />
+    </React.Suspense>
   );
 }
