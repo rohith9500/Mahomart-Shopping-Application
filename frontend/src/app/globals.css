@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 min-h-screen font-sans;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(248, 250, 252, 1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, rgba(240, 249, 255, 0.5) 0, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism Class utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-dark {
+  background: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Horizontal scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Magnifying lens cursor styling */
+.magnify-container {
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.magnified-image {
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  display: none;
+  z-index: 10;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
